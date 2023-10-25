@@ -24,8 +24,8 @@ def login():
         password = request.form['password']
         con = auth.sign_in_with_email_and_password(email, password)
         user = firebase_admin.auth.get_user(con['localId'])
-        authorization = firebase_admin.auth.verify_id_token(con['idToken'])
-        return render_template('profile.html', display_name=user.email, authorization=con['idToken'])
+        authorization = con['idToken']
+        return render_template('profile.html', display_name=user.email, authorization=authorization)
     return render_template('login.html', form=form)
 
 
