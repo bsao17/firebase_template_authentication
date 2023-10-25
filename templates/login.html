@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signin</title>
+</head>
+<body>
+{% block content %}
+<h1>Login page</h1>
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.email.label }}
+    {{ form.email }}
+    {{ form.password.label }}
+    {{ form.password }}
+    {{ form.submit(style="border: solid 1px black; border-radius: 5px; padding: 5px") }}
+</form>
+{% endblock %}
+
+</body>
+</html>
