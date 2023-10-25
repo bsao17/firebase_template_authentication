@@ -1,10 +1,8 @@
 import os
-
 import firebase_admin.auth
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask, render_template, request
 from auth import auth, serverless
-from form import signin_form
+from form import Signin_form
 from decorators import required_login
 
 app = Flask(__name__)
@@ -18,7 +16,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = signin_form()
+    form = Signin_form()
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']

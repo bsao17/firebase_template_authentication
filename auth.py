@@ -1,10 +1,8 @@
 # :param client_secret: Firebase client secret
 import os
-
 import firebase_admin
 from dotenv import load_dotenv
 from firebase_admin import credentials
-
 import firebase
 
 load_dotenv()
@@ -20,12 +18,9 @@ config = {
     "databaseURL": ""
 }
 
-
 cred = credentials.Certificate('serviceAccountKey.json')
 serverless = firebase_admin.initialize_app(cred)
 
-
 default_app = firebase.initialize_app(config)
-
 
 auth = default_app.auth()

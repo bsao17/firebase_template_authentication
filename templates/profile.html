@@ -6,9 +6,15 @@
 </head>
 <body>
 {% block content %}
-    <h1>Profile Page</h1>
-    <p><strong>Email:</strong> {{ display_name }}</p>
-    <p><strong>Con:</strong> {{ authorization }}</p>
+    <h1 class="text-center">Profile Page</h1>
+<div class="card w-50 m-auto">
+    <div class="card-header"><img class="rounded w-100" src="../static/assets/profile_image3.png" alt="picture profile"></div>
+    <div class="card-body">
+        <p><strong>Email:</strong> {{ display_name }}</p>
+        <p><strong>Con:</strong> {{ authorization }}</p>
+    </div>
+</div>
+
 {% endblock %}
 </body>
 </html>
