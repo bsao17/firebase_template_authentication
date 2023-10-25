@@ -6,14 +6,18 @@
 </head>
 <body>
 {% block content %}
-<h1>Login page</h1>
-<form method="POST">
+<h1 class="text-center">Login page</h1>
+<form method="POST" class="w-50 m-auto border rounded p-3">
     {{ form.csrf_token }}
-    {{ form.email.label }}
-    {{ form.email }}
-    {{ form.password.label }}
-    {{ form.password }}
-    {{ form.submit(style="border: solid 1px black; border-radius: 5px; padding: 5px") }}
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <div>
+       {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-primary mt-3") }}
 </form>
 {% endblock %}
 
