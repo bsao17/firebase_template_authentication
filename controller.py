@@ -1,9 +1,9 @@
 import os
 
-import firebase_admin
+import firebase_admin.auth
 from flask import Flask, render_template, request, redirect, url_for
 
-from auth import auth
+from auth import auth, serverless
 from form import signin_form
 
 app = Flask(__name__)
@@ -21,8 +21,9 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        auth.sign_in_with_email_and_password(email, password)
-        return redirect(url_for('profile'))
+        con = auth.sign_in_with_email_and_password(email, password)
+        user = firebase_admin.auth.get_user(con['localId'])
+        return render_template('profile.html', display_name=user.email)
     return render_template('login.html', form=form)
 
 
