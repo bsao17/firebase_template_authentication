@@ -1,9 +1,9 @@
 import os
 import firebase_admin.auth
 from flask import Flask, render_template, request
-from auth import auth, serverless
-from form import Signin_form
+from auth import auth
 from decorators import required_login
+from form import Signin_form
 
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
@@ -21,9 +21,10 @@ def login():
         email = request.form['email']
         password = request.form['password']
         con = auth.sign_in_with_email_and_password(email, password)
-        user = firebase_admin.auth.get_user(con['localId'])
+        auth_id_token_info = auth.get_account_info(con['idToken'])
+        user = firebase_admin.auth.get_user_by_email(request.form['email'])
         authorization = con['idToken']
-        return render_template('profile.html', display_name=user.email, authorization=authorization)
+        return render_template('profile.html', display_name=user.email, authorization=auth_id_token_info, con=con, user=user)
     return render_template('login.html', form=form)
 
 

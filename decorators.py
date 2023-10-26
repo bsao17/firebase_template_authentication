@@ -24,7 +24,7 @@ def required_login(func):
         Returns:
             The return value of the provided function if the authentication is successful, otherwise redirects to the login page.
         """
-        if auth.verify_id_token(request.cookies.get('token')):
+        if auth.get_user_by_email(request.form['email']):
             return func(*args, **kwargs)
         else:
             return redirect(url_for('login'))

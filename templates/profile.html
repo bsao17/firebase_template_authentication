@@ -10,8 +10,9 @@
 <div class="card w-50 m-auto">
     <div class="card-header"><img class="rounded w-100" src="../static/assets/profile_image3.png" alt="picture profile"></div>
     <div class="card-body">
-        <p><strong>Email:</strong> {{ display_name }}</p>
-        <p><strong>Con:</strong> {{ authorization }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>User:</strong> {{ user.uid }}</p>
+        <p><strong>Connected:</strong> {{ user.email_verified }}</p>
     </div>
 </div>
 
