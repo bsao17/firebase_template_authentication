@@ -6,13 +6,14 @@
 </head>
 <body>
 {% block content %}
-    <h1 class="text-center">Profile Page</h1>
+<h1 class="text-center">Profile Page</h1>
 <div class="card w-50 m-auto">
-    <div class="card-header"><img class="rounded w-100" src="../static/assets/profile_image3.png" alt="picture profile"></div>
+    <div class="card-header"><img class="rounded w-100" src="../static/assets/profile_image3.png" alt="picture profile">
+    </div>
     <div class="card-body">
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>User:</strong> {{ user.uid }}</p>
-        <p><strong>Connected:</strong> {{ user.email_verified }}</p>
+        <p><strong>Email verified:</strong> {{ user.email_verified }}</p>
     </div>
 </div>
 
