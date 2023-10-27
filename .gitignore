@@ -2,4 +2,6 @@
 serviceAccountKey.json
 node_modules
 .env
+client_secret_oauth.json
+
 

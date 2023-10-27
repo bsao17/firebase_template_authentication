@@ -3,7 +3,7 @@ import os
 import firebase_admin
 from dotenv import load_dotenv
 from firebase_admin import credentials
-import firebase
+import firebase.auth
 
 load_dotenv()
 
@@ -18,9 +18,16 @@ config = {
     "databaseURL": ""
 }
 
+client_data = {
+    "clientId": os.getenv('ID_CLIENT_WEB'),
+    "providerId": os.getenv('SECRET_KEY_WEB_CLIENT'),
+    "continueUri": "https://example.com/continue",
+}
+
 cred = credentials.Certificate('serviceAccountKey.json')
 serverless = firebase_admin.initialize_app(cred)
 
 default_app = firebase.initialize_app(config)
 
 auth = default_app.auth()
+
