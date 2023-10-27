@@ -1,4 +1,6 @@
 import os
+
+import firebase
 import firebase_admin.auth
 from flask import Flask, render_template, request, redirect, url_for
 from auth import auth
@@ -45,3 +47,9 @@ def signup():
 @required_login
 def profile():
     return render_template('profile.html')
+
+
+@app.route('/login/google')
+def login_google():
+    user = firebase_admin.auth.get_user_by_email("declic62@gmail.com")
+    return redirect(auth.authenticate_login_with_google())
