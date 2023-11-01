@@ -1,9 +1,8 @@
 import os
 
-import firebase
-import firebase_admin.auth
+import pyrebase
 from flask import Flask, render_template, request, redirect, url_for
-from google.oauth2 import credentials
+
 
 from auth import auth
 from decorators import required_login
@@ -25,11 +24,7 @@ def login():
         email = request.form['email']
         password = request.form['password']
         con = auth.sign_in_with_email_and_password(email, password)
-        auth_id_token_info = auth.get_account_info(con['idToken'])
-        user = firebase_admin.auth.get_user_by_email(request.form['email'])
-        authorization = user.email_verified
-        return render_template('profile.html', display_name=user.email, authorization=auth_id_token_info, con=con,
-                               user=user)
+        return render_template('profile.html')
     return render_template('login.html', form=form)
 
 
@@ -39,9 +34,8 @@ def signup():
     if request.method == "POST":
         email = request.form['email']
         password = request.form['password']
-        con = auth.create_user_with_email_and_password(email, password)
-        user = firebase_admin.auth.get_user_by_email(request.form['email'])
-        return redirect(url_for('login'))
+        user = auth.create_user_with_email_and_password(email, password)
+        return redirect(url_for('login', user=user))
     return render_template('signup.html', form=form)
 
 
@@ -53,6 +47,4 @@ def profile():
 
 @app.route('/login/google')
 def login_google():
-    firebase.auth.Auth(os.getenv('API_KEY'), credentials.Certificate('serviceAccountKey.json'),
-                       os.getenv('SECRET_KEY_WEB_CLIENT')).authenticate_login_with_google()
-    return
+    pass

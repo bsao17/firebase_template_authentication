@@ -3,7 +3,7 @@ import os
 import firebase_admin
 from dotenv import load_dotenv
 from firebase_admin import credentials
-import firebase.auth
+import pyrebase
 
 load_dotenv()
 
@@ -24,10 +24,11 @@ client_data = {
     "continueUri": "https://example.com/continue",
 }
 
-cred = credentials.Certificate('serviceAccountKey.json')
+default_app = pyrebase.initialize_app(config)
+auth = default_app.auth()
+
+cred = credentials.Certificate('credentials.json')
 serverless = firebase_admin.initialize_app(cred)
 
-default_app = firebase.initialize_app(config)
 
-auth = default_app.auth()
 

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "firebase-template"
+version = "0.1.0"
+description = ""
+authors = ["bsao17 <declic62@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyrebase4 = "^4.7.1"
+firebase-admin = "^6.2.0"
+flask = "^3.0.0"
+python-dotenv = "^1.0.0"
+oauth2 = "^1.9.0.post1"
+wtforms = "^3.1.1"
+flask-wtf = "^1.2.1"
+
+[tool.poetry.group.dev.dependencies]
+Flask = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
