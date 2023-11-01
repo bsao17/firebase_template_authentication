@@ -1,5 +1,6 @@
 {
   "name": "javascript",
+  "type": "module",
   "version": "1.0.0",
   "description": "Firebase Authentication with Flask site",
   "main": "index.js",
@@ -8,5 +9,9 @@
   },
   "keywords": [],
   "author": "Mehddeb Bruno",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.5.2",
+    "firebaseui": "^6.1.0"
+  }
 }

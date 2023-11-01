@@ -1,6 +1,6 @@
 import os
 
-import pyrebase
+
 from flask import Flask, render_template, request, redirect, url_for
 
 
@@ -23,8 +23,9 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        con = auth.sign_in_with_email_and_password(email, password)
-        return render_template('profile.html')
+        user = auth.sign_in_with_email_and_password(email, password)
+        verified_email = auth.get_account_info()
+        return render_template('profile.html', user=user)
     return render_template('login.html', form=form)
 
 

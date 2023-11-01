@@ -26,7 +26,6 @@ client_data = {
 
 default_app = pyrebase.initialize_app(config)
 auth = default_app.auth()
-
 cred = credentials.Certificate('credentials.json')
 serverless = firebase_admin.initialize_app(cred)
 

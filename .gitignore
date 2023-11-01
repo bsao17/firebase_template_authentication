@@ -3,5 +3,7 @@ serviceAccountKey.json
 node_modules
 .env
 client_secret_oauth.json
-
+credentials.json
+package-lock.json
+poetry.lock
 
