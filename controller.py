@@ -24,7 +24,7 @@ def login():
         email = request.form['email']
         password = request.form['password']
         user = auth.sign_in_with_email_and_password(email, password)
-        verified_email = auth.get_account_info()
+        
         return render_template('profile.html', user=user)
     return render_template('login.html', form=form)
 
@@ -36,7 +36,8 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         user = auth.create_user_with_email_and_password(email, password)
-        return redirect(url_for('login', user=user))
+        if user.registered:
+            return redirect(url_for('login', user=user))
     return render_template('signup.html', form=form)
 
 

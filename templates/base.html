@@ -7,6 +7,10 @@
     {% block link %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% endblock %}
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth__{javascript}.js"></script>
+    <script type="module" src="../static/javascript/main.js"></script>
+    {% block script %}  {% endblock %}
     <title>base</title>
 </head>
 <body>
@@ -19,16 +23,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                {% if not user.registered %}
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="{{ url_for('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="{{ url_for('login') }}">Login</a>
                 </li>
+                {% endif %}
+                
+                {% if user.registered %}
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{{ url_for('index') }}">Home</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link active text-light" aria-current="page" href="{{ url_for('signup') }}">Registration</a>-->
-<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="profile">profile</a>
+                </li>
+                {% endif %}
+
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link active text-light" aria-current="page" href="{{ url_for('signup') }}">Registration</a>-->
+<!--            </li>-->
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

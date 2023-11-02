@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% block link %}{% endblock %}
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js" defer></script>
     <title>signin</title>
 </head>
 <body>
@@ -19,6 +21,8 @@
     </div>
     {{ form.submit(class="btn btn-primary mt-3") }}
 </form>
+<h2 class="text-center">FirebaseUI</h2>
+<div id="firebaseui-auth-container"></div>
 {% endblock %}
 
 </body>
