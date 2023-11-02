@@ -9,7 +9,7 @@
     {% endblock %}
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth__{javascript}.js"></script>
-    <script type="module" src="../static/javascript/main.js"></script>
+    <script type="module" src="{{ url_for ('static', filename = 'javascript/dist/index.63aff760.js') }}"></script>
     {% block script %}  {% endblock %}
     <title>base</title>
 </head>
