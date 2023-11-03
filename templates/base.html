@@ -7,7 +7,6 @@
     {% block link %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% endblock %}
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
     <script type="module" src="{{ url_for ('static', filename = 'javascript/main.js') }}"></script>
     {% block script %}  {% endblock %}
     <title>base</title>
@@ -56,6 +55,5 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous">
 </script>
-<script src="../static/javascript/main.js"></script>
 </body>
 </html>
