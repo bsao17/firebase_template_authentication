@@ -1,0 +1,35 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar__title {
+    font-size: 24px;
+  }
+  
+  .navbar__link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+  }
+  
+  .navbar__link:hover {
+    color: #04D9B2;
+  }
+  
+  /* Ajoutez des médias queries pour un design responsive */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
+    .navbar__item {
+      padding: 10px 0;
+    }
+  }
+  
